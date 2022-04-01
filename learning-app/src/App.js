@@ -1,23 +1,39 @@
 import logo from './logo.svg';
+import {Reat, useState, useEffect} from 'react'
 import './App.css';
 
 function App() {
+  
+  const [val, setVal] = useState({
+    alpha: null,
+    beta: null,
+    gamma: null
+  })
+
+  useEffect(() => {
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', handleOrientation, true);
+    }
+  }, [])
+  
+  
+  const handleOrientation = (event) => {
+    setVal({
+      alpha: event.alpha,
+      beta: event.beta,
+      gamma: event.gamma
+    })
+  }
+
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul>
+        <li>ɑ: {val.alpha}</li>
+        <li>β: {val.beta}</li>
+        <li>γ: {val.gamma}</li>
+      </ul>
     </div>
   );
 }
