@@ -1,14 +1,11 @@
-import React, { Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React from "react";
 import "./App.css";
-import Planets from "./components/Planets";
-// import SkyBox from "./components/SkyBox";
-// import CameraControls from "./components/CameraControls";
+import PlanetsList from "./components/PlanetsList";
 
 function App() {
   return (
     <div className="App">
-      <Planets />
+      <PlanetsList />
     </div>
   );
 }
