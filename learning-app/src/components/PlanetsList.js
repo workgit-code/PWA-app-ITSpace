@@ -75,7 +75,7 @@ const planetsList = [
 
 function PlanetsList() {
   const [startIndex, setStartIndex] = useState(0)
-  const [endIndex, setEndIndex] = useState(5)
+  const [endIndex, setEndIndex] = useState(4)
   const phoneRotation = usePhoneRotation()
   const [currPhonePos, setCurrPhonePos] = useState(phoneRotation.alpha)
   const [prevPhonePos, setPrevPhonePos] = useState(phoneRotation.alpha)
@@ -88,21 +88,21 @@ function PlanetsList() {
         // 0, 2, 3, 4, 5    10 11 12 14 15
         if(endIndex >= planetsList.length){
           setStartIndex(0)
-          setEndIndex(5)
+          setEndIndex(4)
         }
         else {
           setStartIndex(endIndex)
-          setEndIndex(endIndex + 5)
+          setEndIndex(endIndex + 4)
         }
       }
       else if (phoneRotation.alpha <= -30){
-        if(startIndex === 0 && endIndex === 5) {
-          if(planetsList.length % 5 === 0){
-            setStartIndex(planetsList.length - 4)
+        if(startIndex === 0 && endIndex === 4) {
+          if(planetsList.length % 4 === 0){
+            setStartIndex(planetsList.length - 3)
             setEndIndex(planetsList.length)
           }
           else {
-            const decreaser = planetsList.length % 5
+            const decreaser = planetsList.length % 4
             setStartIndex(planetsList.length - decreaser)
             setEndIndex(planetsList.length)
           }
@@ -114,7 +114,7 @@ function PlanetsList() {
         }
         else {
           setEndIndex(startIndex)
-          setStartIndex(startIndex - 5)
+          setStartIndex(startIndex - 4)
 
           //  5 - 10
         }
@@ -134,9 +134,6 @@ function PlanetsList() {
       })
       }
     </div>
-    <ul>
-      <li>{phoneRotation.alpha}</li>
-    </ul>
     </>
   );
 }
