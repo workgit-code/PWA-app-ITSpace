@@ -1,0 +1,21 @@
+.nav {
+    width: 80%;
+    max-width: 750px;
+    height: 70px;
+    background-color: #716B7E;
+    position: fixed;
+    bottom: -2px;
+    border-radius: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    left: 0; right: 0;
+    margin: 0 auto;
+    z-index: 10;
+    margin-bottom: 15px;
+}
+
+#compass {
+    color: white;
+
+}
