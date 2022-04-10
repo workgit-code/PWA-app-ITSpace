@@ -1,22 +1,30 @@
+.PlanetsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.even-planet {
+  align-self: flex-start;
+}
+
+.odd-planet {
+  align-self: flex-end;
+}
+
 .Planet img {
   width: 100px;
   height: 100px;
   object-fit: cover;
 }
 
-.PlanetsContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 200px);
-  grid-template-rows: repeat(3, 200px);
-  grid-gap: 15px;
-  margin-block: 20px;
+.Planet p {
+  color: white;
 }
 
-#Planet2 {
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  display: flex;
-  align-items: center;
+
+ul {
+  color: white;
 }
+
+
