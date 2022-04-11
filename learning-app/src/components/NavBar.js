@@ -6,9 +6,9 @@ function NavBar() {
   return (
     <div className="nav">
       <Link to={"/"}>
-        <i class="fas fa-compass" id="compass" sizes="40x40"></i>Explore</Link>
-      <Link to={"/planets"}>My Galaxy</Link>
-      <Link to={"/"}>Profile</Link>
+        <i class="fas fa-compass" id="icon" sizes="40x40"></i></Link>
+      <Link to={"/planets"}><i class="fas fa-globe" id="icon"></i></Link>
+      <Link to={"/"}><i class="fas fa-user" id="icon"></i></Link>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 .nav {
     width: 80%;
-    max-width: 750px;
     height: 70px;
     background-color: #716B7E;
+    max-width: 750px;
     position: fixed;
     bottom: -2px;
     border-radius: 50px;
@@ -15,7 +15,23 @@
     margin-bottom: 15px;
 }
 
-#compass {
+#icon {
     color: white;
 
 }
+
+img {
+    animation-name: inhale-exhale;
+}
+
+@keyframes inhale-exhale {
+    0% {
+    transform: scale(1, 1);
+    }
+    50% {
+    transform: scale(1.5, 1.5);
+    }
+    100% {
+    transform: scale(1, 1);
+    }
+    }

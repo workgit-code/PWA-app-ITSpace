@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import PlanetsList from "./components/PlanetsList";
 import Routing from "./components/Routing";
 

@@ -1,6 +1,19 @@
 import {React, useState, useEffect} from "react";
 import Planet1 from "../images/Planet1.png";
 import Planet2 from "../images/Planet2.png";
+import Planet3 from "../images/Planet3.png";
+import Planet4 from "../images/Planet4.png";
+import Planet5 from "../images/Planet5.png";
+import Planet6 from "../images/Planet6.png";
+import Planet7 from "../images/Planet7.png";
+import Planet8 from "../images/Planet8.png";
+import Planet9 from "../images/Planet9.png";
+import Planet10 from "../images/Planet10.png";
+import Planet11 from "../images/Planet11.png";
+import Planet12 from "../images/Planet12.png";
+import Planet13 from "../images/Planet13.png";
+import Planet14 from "../images/Planet14.png";
+import Planet15 from "../images/Planet15.png";
 import "../stylesheets/Planets.css";
 import PlanetRow from "./PlanetRow"
 import usePhoneRotation from "../hooks/usePhoneRotation.js"
@@ -13,59 +26,59 @@ const planetsList = [
   },
   {
     name: "React-us",
-    img: `${Planet1}` 
+    img: `${Planet2}` 
   },
   {
     name: "Python-ous",
-    img: `${Planet1}` 
+    img: `${Planet3}` 
   },
   {
     name: "JavaScript-us",
-    img: `${Planet2}` 
+    img: `${Planet4}` 
   },
   {
     name: "PHP-lius",
-    img: `${Planet2}` 
+    img: `${Planet5}` 
   },
   {
     name: "Java-rius",
-    img: `${Planet2}` 
+    img: `${Planet6}` 
   },
   {
     name: "Java-rius1",
-    img: `${Planet2}` 
+    img: `${Planet7}` 
   },
   {
     name: "Java-rius2",
-    img: `${Planet2}` 
+    img: `${Planet8}` 
   },
   {
     name: "Java-rius3",
-    img: `${Planet2}` 
+    img: `${Planet9}` 
   },
   {
     name: "Java-rius4",
-    img: `${Planet2}` 
+    img: `${Planet10}` 
   },
   {
     name: "Java-rius5",
-    img: `${Planet2}` 
+    img: `${Planet11}` 
   },
   {
     name: "Java-rius6",
-    img: `${Planet2}` 
+    img: `${Planet12}` 
   },
   {
     name: "Java-rius7",
-    img: `${Planet2}` 
+    img: `${Planet13}` 
   },
   {
     name: "Java-rius8",
-    img: `${Planet2}` 
+    img: `${Planet14}` 
   },
   {
     name: "Java-rius9",
-    img: `${Planet2}` 
+    img: `${Planet15}` 
   },
   {
     name: "Java-rius10",
