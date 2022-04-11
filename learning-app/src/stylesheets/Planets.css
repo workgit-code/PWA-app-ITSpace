@@ -3,19 +3,46 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
+  
 }
 
-.even-planet {
+.PlanetsContainer[triggerAnimation='0'] .odd-planet {
+  align-self: flex-end;
+}
+.PlanetsContainer[triggerAnimation='0'] .even-planet {
   align-self: flex-start;
 }
 
-.odd-planet {
-  align-self: flex-end;
+.PlanetsContainer[triggerAnimation='1'] .even-planet {
+  align-self: flex-start;
+  position: relative;
+  animation: planets-showing;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-direction:reverse;
 }
 
+@keyframes planets-showing {
+  0%   {left: 0%; top: 0px;}
+  100%  {left: 100%; top: 0px;}
+}
+
+
+.PlanetsContainer[triggerAnimation='1'] .odd-planet {
+  align-self: flex-end;
+  position: relative;
+  animation: planets-showing;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-direction:reverse;
+}
+
+
 .Planet img {
-  width: 100px;
-  height: 100px;
+  width: 85px;
+  height: 85px;
   object-fit: cover;
   /* animation: zoom-in-zoom-out 2s ease-out infinite; */
   animation: rotation 8s infinite linear;
@@ -30,18 +57,6 @@
   }
 }
 
-/* @keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.5, 1.5);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-} */
-
 .Planet p {
   color: white;
 }
@@ -51,4 +66,34 @@ ul {
   color: white;
 }
 
+.phone-icon i {
+  color: white;
+  font-size: 50px;
+  /* opacity: 0;
+  animation: 2s fadeIn;
+  animation-fill-mode: forwards;
+  transition: opacity 1s; */
+  animation: tiltImage 2s linear infinite, 2s fadeIn forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tiltImage {
+  0% {
+    transform: rotate(15eg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
 
