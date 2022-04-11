@@ -79,17 +79,8 @@ const planetsList = [
   {
     name: "Java-rius9",
     img: `${Planet15}`,
-<<<<<<< HEAD
-  },
-  {
-    name: "Java-rius10",
-    img: `${Planet2}`,
   },
 ];
-=======
-  }
-];  
->>>>>>> d02c00717bdd5b074badd14baa357bbafad3e80d
 
 function PlanetsList() {
   const [startIndex, setStartIndex] = useState(0);
@@ -98,7 +89,7 @@ function PlanetsList() {
   const [currPhonePos, setCurrPhonePos] = useState(phoneRotation.alpha);
   const [prevPhonePos, setPrevPhonePos] = useState(phoneRotation.alpha);
 
-  const [triggerAnimation, setTriggerAnimation] = useState(1)
+  const [triggerAnimation, setTriggerAnimation] = useState(1);
 
   const [isPlanetOpen, setPlanetOpen] = useState(false);
 
@@ -143,16 +134,19 @@ function PlanetsList() {
           //  5 - 10
         }
       }
-      setTriggerAnimation(1)
+      setTriggerAnimation(1);
       setPrevPhonePos(currPhonePos);
     }
   }, [phoneRotation.alpha]);
 
   return (
-<<<<<<< HEAD
-    <>
+    <div>
       {!isPlanetOpen ? (
-        <div className="PlanetsContainer">
+        <div
+          className="PlanetsContainer"
+          triggerAnimation={triggerAnimation}
+          onAnimationEnd={() => setTriggerAnimation(0)}
+        >
           {planetsList.slice(startIndex, endIndex).map((planet, index) => {
             const planetClassName =
               (index + 1) % 2 === 0 ? "even-planet" : "odd-planet";
@@ -166,31 +160,14 @@ function PlanetsList() {
               />
             );
           })}
+          <div className="phone-icon">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
         </div>
       ) : (
         <PlanetItem />
       )}
-    </>
-=======
-    <div>
-      <div className="PlanetsContainer" triggerAnimation={triggerAnimation} onAnimationEnd={() => setTriggerAnimation(0)}>
-        {planetsList.slice(startIndex, endIndex).map((planet, index) => {
-          const planetClassName =
-            (index + 1) % 2 === 0 ? "even-planet" : "odd-planet";
-          return (
-            <PlanetRow
-              key={index}
-              planet={planet}
-              planetIndex={index}
-              planetClassName={planetClassName}
-            />
-          );
-        })}
-        <div className="phone-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-      </div>
-      
     </div>
->>>>>>> d02c00717bdd5b074badd14baa357bbafad3e80d
   );
 }
 

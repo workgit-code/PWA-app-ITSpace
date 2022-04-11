@@ -1,23 +1,24 @@
-import React from "react";
 import { React, useState, useEffect } from "react";
 
 function PlanetItem() {
+  const [user, setUser] = useState({
+    name: "Benny",
+    fuel: 50,
+    gems: 1,
+  });
 
-    const [counter, setCounter] = useState(0);
+  const finishTutorial = () => {
+    setUser((prevState) => ({
+      ...prevState,
+      fuel: prevState.fuel + 5,
+    }));
+  };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setCounter(counter + 1);
-        }, 1000);
-    
-        return () => {
-          clearInterval(interval);
-        };
-      });
-    
-
-  return <div><button>Finish!</button>
-  <h3>{counter}</h3></div>;
+  return (
+    <div>
+      <button onClick={finishTutorial}>Finish!</button>
+    </div>
+  );
 }
 
 export default PlanetItem;
