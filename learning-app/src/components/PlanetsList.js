@@ -78,27 +78,25 @@ const planetsList = [
   {
     name: "Java-rius9",
     img: `${Planet15}`,
-  },
-  {
-    name: "Java-rius10",
-    img: `${Planet2}`,
-  },
+  }
 ];  
 
 function PlanetsList() {
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(3);
   const phoneRotation = usePhoneRotation();
-  const [currPhonePos, setCurrPhonePos] = useState(phoneRotation.gamma);
-  const [prevPhonePos, setPrevPhonePos] = useState(phoneRotation.gamma);
+  const [currPhonePos, setCurrPhonePos] = useState(phoneRotation.alpha);
+  const [prevPhonePos, setPrevPhonePos] = useState(phoneRotation.alpha);
+
+  const [triggerAnimation, setTriggerAnimation] = useState(1)
 
   useEffect(() => {
-    setCurrPhonePos(phoneRotation.gamma);
+    setCurrPhonePos(phoneRotation.alpha);
     if (
-      prevPhonePos !== phoneRotation.gamma &&
-      phoneRotation.gamma - prevPhonePos >= 20
+      prevPhonePos !== phoneRotation.alpha &&
+      Math.abs(phoneRotation.alpha - prevPhonePos) >= 20
     ) {
-      if (phoneRotation.gamma >= 30) {
+      if (phoneRotation.alpha >= 45) {
         // 0, 2, 3, 4, 5    10 11 12 14 15
         if (endIndex >= planetsList.length) {
           setStartIndex(0);
@@ -107,10 +105,10 @@ function PlanetsList() {
           setStartIndex(endIndex);
           setEndIndex(endIndex + 3);
         }
-      } else if (phoneRotation.gamma <= -30) {
+      } else if (phoneRotation.alpha <= -45) {
         if (startIndex === 0 && endIndex === 3) {
           if (planetsList.length % 3 === 0) {
-            setStartIndex(planetsList.length - 2);
+            setStartIndex(planetsList.length - 3);
             setEndIndex(planetsList.length);
           } else {
             const decreaser = planetsList.length % 3;
@@ -128,13 +126,14 @@ function PlanetsList() {
           //  5 - 10
         }
       }
+      setTriggerAnimation(1)
       setPrevPhonePos(currPhonePos);
     }
-  }, [phoneRotation.gamma]);
+  }, [phoneRotation.alpha]);
 
   return (
-    <>
-      <div className="PlanetsContainer">
+    <div>
+      <div className="PlanetsContainer" triggerAnimation={triggerAnimation} onAnimationEnd={() => setTriggerAnimation(0)}>
         {planetsList.slice(startIndex, endIndex).map((planet, index) => {
           const planetClassName =
             (index + 1) % 2 === 0 ? "even-planet" : "odd-planet";
@@ -147,8 +146,10 @@ function PlanetsList() {
             />
           );
         })}
+        <div className="phone-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
       </div>
-    </>
+      
+    </div>
   );
 }
 
