@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import Planet1 from "../images/Planet1.png";
 import Planet2 from "../images/Planet2.png";
 import Planet3 from "../images/Planet3.png";
@@ -15,138 +15,139 @@ import Planet13 from "../images/Planet13.png";
 import Planet14 from "../images/Planet14.png";
 import Planet15 from "../images/Planet15.png";
 import "../stylesheets/Planets.css";
-import PlanetRow from "./PlanetRow"
-import usePhoneRotation from "../hooks/usePhoneRotation.js"
-
+import PlanetRow from "./PlanetRow";
+import usePhoneRotation from "../hooks/usePhoneRotation.js";
 
 const planetsList = [
   {
     name: "HTML-ius",
-    img: `${Planet1}` 
+    img: `${Planet1}`,
   },
   {
     name: "React-us",
-    img: `${Planet2}` 
+    img: `${Planet2}`,
   },
   {
     name: "Python-ous",
-    img: `${Planet3}` 
+    img: `${Planet3}`,
   },
   {
     name: "JavaScript-us",
-    img: `${Planet4}` 
+    img: `${Planet4}`,
   },
   {
     name: "PHP-lius",
-    img: `${Planet5}` 
+    img: `${Planet5}`,
   },
   {
     name: "Java-rius",
-    img: `${Planet6}` 
+    img: `${Planet6}`,
   },
   {
     name: "Java-rius1",
-    img: `${Planet7}` 
+    img: `${Planet7}`,
   },
   {
     name: "Java-rius2",
-    img: `${Planet8}` 
+    img: `${Planet8}`,
   },
   {
     name: "Java-rius3",
-    img: `${Planet9}` 
+    img: `${Planet9}`,
   },
   {
     name: "Java-rius4",
-    img: `${Planet10}` 
+    img: `${Planet10}`,
   },
   {
     name: "Java-rius5",
-    img: `${Planet11}` 
+    img: `${Planet11}`,
   },
   {
     name: "Java-rius6",
-    img: `${Planet12}` 
+    img: `${Planet12}`,
   },
   {
     name: "Java-rius7",
-    img: `${Planet13}` 
+    img: `${Planet13}`,
   },
   {
     name: "Java-rius8",
-    img: `${Planet14}` 
+    img: `${Planet14}`,
   },
   {
     name: "Java-rius9",
-    img: `${Planet15}` 
+    img: `${Planet15}`,
   },
   {
     name: "Java-rius10",
-    img: `${Planet2}` 
-  }
-]
+    img: `${Planet2}`,
+  },
+];
 
 function PlanetsList() {
-  const [startIndex, setStartIndex] = useState(0)
-  const [endIndex, setEndIndex] = useState(4)
-  const phoneRotation = usePhoneRotation()
-  const [currPhonePos, setCurrPhonePos] = useState(phoneRotation.alpha)
-  const [prevPhonePos, setPrevPhonePos] = useState(phoneRotation.alpha)
-
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(3);
+  const phoneRotation = usePhoneRotation();
+  const [currPhonePos, setCurrPhonePos] = useState(phoneRotation.gamma);
+  const [prevPhonePos, setPrevPhonePos] = useState(phoneRotation.gamma);
 
   useEffect(() => {
-    setCurrPhonePos(phoneRotation.alpha)
-    if (prevPhonePos !== phoneRotation.alpha) {
-      if(phoneRotation.alpha >= 30) {
+    setCurrPhonePos(phoneRotation.gamma);
+    if (
+      prevPhonePos !== phoneRotation.gamma &&
+      phoneRotation.gamma - prevPhonePos >= 20
+    ) {
+      if (phoneRotation.gamma >= 30) {
         // 0, 2, 3, 4, 5    10 11 12 14 15
-        if(endIndex >= planetsList.length){
-          setStartIndex(0)
-          setEndIndex(4)
+        if (endIndex >= planetsList.length) {
+          setStartIndex(0);
+          setEndIndex(3);
+        } else {
+          setStartIndex(endIndex);
+          setEndIndex(endIndex + 3);
         }
-        else {
-          setStartIndex(endIndex)
-          setEndIndex(endIndex + 4)
-        }
-      }
-      else if (phoneRotation.alpha <= -30){
-        if(startIndex === 0 && endIndex === 4) {
-          if(planetsList.length % 4 === 0){
-            setStartIndex(planetsList.length - 3)
-            setEndIndex(planetsList.length)
+      } else if (phoneRotation.gamma <= -30) {
+        if (startIndex === 0 && endIndex === 3) {
+          if (planetsList.length % 3 === 0) {
+            setStartIndex(planetsList.length - 2);
+            setEndIndex(planetsList.length);
+          } else {
+            const decreaser = planetsList.length % 3;
+            setStartIndex(planetsList.length - decreaser);
+            setEndIndex(planetsList.length);
           }
-          else {
-            const decreaser = planetsList.length % 4
-            setStartIndex(planetsList.length - decreaser)
-            setEndIndex(planetsList.length)
-          }
-          
 
           // 15 % 5 == 0  ; 16 % 5 == 1  ;  17 % 5 == 2
 
           // 0, 2, 3, 4, 5    10 11 12 14 15   0, 2, 3, 4, 5    10 11 12 14 15  23
-        }
-        else {
-          setEndIndex(startIndex)
-          setStartIndex(startIndex - 4)
+        } else {
+          setEndIndex(startIndex);
+          setStartIndex(startIndex - 3);
 
           //  5 - 10
         }
       }
-      setPrevPhonePos(currPhonePos)
+      setPrevPhonePos(currPhonePos);
     }
-  }, [phoneRotation.alpha])
+  }, [phoneRotation.gamma]);
 
   return (
     <>
-    <div className="PlanetsContainer">
-      {planetsList.slice(startIndex, endIndex).map((planet, index) => {
-        const planetClassName = (index + 1) % 2 === 0 ? "even-planet" : "odd-planet" 
-        return (
-          <PlanetRow key={index} planet={planet} planetIndex={index} planetClassName={planetClassName}/>
-        )
-      })
-      }
-    </div>
+      <div className="PlanetsContainer">
+        {planetsList.slice(startIndex, endIndex).map((planet, index) => {
+          const planetClassName =
+            (index + 1) % 2 === 0 ? "even-planet" : "odd-planet";
+          return (
+            <PlanetRow
+              key={index}
+              planet={planet}
+              planetIndex={index}
+              planetClassName={planetClassName}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }
