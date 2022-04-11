@@ -1,12 +1,14 @@
 import { React, useState } from "react";
 import WebDevGalaxy from "../images/WebDevGalaxy.png";
+import AIGalaxy from "../images/AIGalaxy.png";
+import DesktopDevGalaxy from "../images/DesktopDevGalaxy.png";
 import Carousel from "react-hook-carousel";
 import "../stylesheets/Carousel.scss";
 
 const slider = [
   { title: "Web Dev Galaxy", image: WebDevGalaxy, alt: "alt image1" },
-  { title: "AI Galaxy", image: WebDevGalaxy, alt: "alt image2" },
-  { title: "Mobile Dev Galaxy", image: WebDevGalaxy, alt: "alt image3" },
+  { title: "AI Galaxy", image: AIGalaxy, alt: "alt image2" },
+  { title: "Mobile Dev Galaxy", image: DesktopDevGalaxy, alt: "alt image3" },
 ];
 
 function GalaxyOptions() {

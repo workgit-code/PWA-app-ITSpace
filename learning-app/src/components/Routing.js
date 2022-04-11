@@ -3,6 +3,7 @@ import GalaxyOptions from "./GalaxyOptions";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
 import PlanetsList from "./PlanetsList";
+import Space from "./Space";
 import TopNav from "./TopNav";
 
 function Routing() {

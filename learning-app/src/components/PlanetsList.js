@@ -83,7 +83,7 @@ const planetsList = [
     name: "Java-rius10",
     img: `${Planet2}`,
   },
-];
+];  
 
 function PlanetsList() {
   const [startIndex, setStartIndex] = useState(0);
