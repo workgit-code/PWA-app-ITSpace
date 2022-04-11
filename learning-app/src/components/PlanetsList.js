@@ -16,6 +16,7 @@ import Planet14 from "../images/Planet14.png";
 import Planet15 from "../images/Planet15.png";
 import "../stylesheets/Planets.css";
 import PlanetRow from "./PlanetRow";
+import PlanetItem from "./PlanetItem";
 import usePhoneRotation from "../hooks/usePhoneRotation.js";
 
 const planetsList = [
@@ -83,7 +84,7 @@ const planetsList = [
     name: "Java-rius10",
     img: `${Planet2}`,
   },
-];  
+];
 
 function PlanetsList() {
   const [startIndex, setStartIndex] = useState(0);
@@ -91,6 +92,13 @@ function PlanetsList() {
   const phoneRotation = usePhoneRotation();
   const [currPhonePos, setCurrPhonePos] = useState(phoneRotation.gamma);
   const [prevPhonePos, setPrevPhonePos] = useState(phoneRotation.gamma);
+
+  const [isPlanetOpen, setPlanetOpen] = useState(false);
+
+  const managePlanetState = (planetState) => {
+    setPlanetOpen(planetState);
+    console.log(planetState);
+  };
 
   useEffect(() => {
     setCurrPhonePos(phoneRotation.gamma);
@@ -134,20 +142,25 @@ function PlanetsList() {
 
   return (
     <>
-      <div className="PlanetsContainer">
-        {planetsList.slice(startIndex, endIndex).map((planet, index) => {
-          const planetClassName =
-            (index + 1) % 2 === 0 ? "even-planet" : "odd-planet";
-          return (
-            <PlanetRow
-              key={index}
-              planet={planet}
-              planetIndex={index}
-              planetClassName={planetClassName}
-            />
-          );
-        })}
-      </div>
+      {!isPlanetOpen ? (
+        <div className="PlanetsContainer">
+          {planetsList.slice(startIndex, endIndex).map((planet, index) => {
+            const planetClassName =
+              (index + 1) % 2 === 0 ? "even-planet" : "odd-planet";
+            return (
+              <PlanetRow
+                key={index}
+                planet={planet}
+                planetIndex={index}
+                planetClassName={planetClassName}
+                managePlanetState={managePlanetState}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <PlanetItem />
+      )}
     </>
   );
 }
