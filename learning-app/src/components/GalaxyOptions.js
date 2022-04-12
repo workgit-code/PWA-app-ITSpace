@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import WebDevGalaxy from "../images/WebDevGalaxy.png";
 import AIGalaxy from "../images/AIGalaxy.png";
 import DesktopDevGalaxy from "../images/DesktopDevGalaxy.png";
+import { Link } from "react-router-dom";
 import Carousel from "react-hook-carousel";
 import "../stylesheets/Carousel.scss";
 
@@ -37,7 +38,9 @@ function GalaxyOptions() {
         </div>
         <div>
           <p>{slider[active].title}</p>
+          <Link to="/planets">
           <img src={slider[active].image} alt={slider[active].alt} />
+          </Link>
         </div>
         <div className="carousel-arrows" onClick={next}>
           <i class="fa-solid fa-arrow-right"></i>

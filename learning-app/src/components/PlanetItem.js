@@ -14,9 +14,11 @@ function PlanetItem() {
     }));
   };
 
+
   return (
     <div>
-      <button onClick={finishTutorial}>Finish!</button>
+      <div className="fuelContainer"></div>
+     <button onClick={finishTutorial}>Finish!</button>
     </div>
   );
 }

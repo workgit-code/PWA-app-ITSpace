@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import PlanetsList from "./PlanetsList";
 import Space from "./Space";
 import TopNav from "./TopNav";
+import PlanetItem from "./PlanetItem";
 
 function Routing() {
   return (
@@ -14,6 +15,7 @@ function Routing() {
         <Routes>
           <Route path={"/"} exact element={<GalaxyOptions />} />
           <Route path={"/planets"} exact element={<PlanetsList />} />
+          <Route path={"/planetItem"} exact element={<PlanetItem/>} />
         </Routes>
         <NavBar />
       </div>
