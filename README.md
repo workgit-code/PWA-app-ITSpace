@@ -1,6 +1,6 @@
-Setup after cloning the repo
+### Setup the project after cloning the repo
 
--> IT-SPACE-APP (React app that represent a MVP of a modern learning platform in the IT area)
+## IT-SPACE-APP (React app that represent a MVP of a modern learning platform in the IT area)
 1) Go to the project folder inside it-space-app
 > cd duo23-pwa/it-space-app/
 2) Install npm depencies
@@ -9,5 +9,6 @@ Setup after cloning the repo
 > npm start
 4) View the app on a server
 > https://i454917.hera.fhict.nl/
+
 Instructions:
 - If you are on laptop use this keyboard combination(Ctrl + Shift + C) to switch to responsive mode(usually phone size)
