@@ -21,63 +21,63 @@ import usePhoneRotation from "../hooks/usePhoneRotation.js";
 
 const planetsList = [
   {
-    name: "HTML-ius",
+    name: "HTMLius",
     img: `${Planet1}`,
   },
   {
-    name: "React-us",
+    name: "REACTitan",
     img: `${Planet2}`,
   },
   {
-    name: "Python-ous",
+    name: "PHYTONous",
     img: `${Planet3}`,
   },
   {
-    name: "JavaScript-us",
+    name: "JAVASCRIPTus",
     img: `${Planet4}`,
   },
   {
-    name: "PHP-lius",
+    name: "PHPluto",
     img: `${Planet5}`,
   },
   {
-    name: "Java-rius",
+    name: "JAVARius",
     img: `${Planet6}`,
   },
   {
-    name: "Java-rius1",
+    name: "CSSaturn",
     img: `${Planet7}`,
   },
   {
-    name: "Java-rius2",
+    name: "HTMLius",
     img: `${Planet8}`,
   },
   {
-    name: "Java-rius3",
+    name: "JAVASCRIPTus",
     img: `${Planet9}`,
   },
   {
-    name: "Java-rius4",
+    name: "REACTitan",
     img: `${Planet10}`,
   },
   {
-    name: "Java-rius5",
+    name: "PHPluto",
     img: `${Planet11}`,
   },
   {
-    name: "Java-rius6",
+    name: "JAVASCRIPTus",
     img: `${Planet12}`,
   },
   {
-    name: "Java-rius7",
+    name: "CSSaturn",
     img: `${Planet13}`,
   },
   {
-    name: "Java-rius8",
+    name: "ANGULARius",
     img: `${Planet14}`,
   },
   {
-    name: "Java-rius9",
+    name: "FIGMAcorvus",
     img: `${Planet15}`,
   },
 ];
