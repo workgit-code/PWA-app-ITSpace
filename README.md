@@ -14,7 +14,8 @@ Instructions:
 - If you are on laptop use this keyboard combination(Ctrl + Shift + C) to switch to responsive mode(usually phone size)
 
 Documentation: 
-[link](https://docs.google.com/document/d/1ZHCeKGIkbw0y6cZSLL8rft006S-ermcC6YRPc-Bunxo/edit)
+[Link](https://docs.google.com/document/d/1ZHCeKGIkbw0y6cZSLL8rft006S-ermcC6YRPc-Bunxo/edit)
+
 Figma:
 [Prototype](https://www.figma.com/file/KxR2LDzNVWnnH4StdBxDwx/PWA-app?node-id=0%3A1)
 
